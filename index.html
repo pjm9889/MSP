@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터 관리 시스템</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 데이터 관리 시스템</h1>
+            <nav>
+                <button class="nav-btn active" onclick="showSection('list')">목록 보기</button>
+                <button class="nav-btn" onclick="showSection('add')">추가하기</button>
+                <button class="nav-btn" onclick="showSection('search')">검색</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- 목록 보기 섹션 -->
+            <section id="list-section" class="section active">
+                <h2>데이터 목록</h2>
+                <div class="data-controls">
+                    <button onclick="loadData()">🔄 새로고침</button>
+                    <button onclick="clearData()">🗑️ 전체 삭제</button>
+                </div>
+                <div id="data-list" class="data-list">
+                    <!-- 데이터가 여기 표시됩니다 -->
+                </div>
+            </section>
+
+            <!-- 추가하기 섹션 -->
+            <section id="add-section" class="section">
+                <h2>새 데이터 추가</h2>
+                <form id="add-form" class="form">
+                    <div class="form-group">
+                        <label for="name">이름:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">이메일:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">메시지:</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">저장</button>
+                </form>
+            </section>
+
+            <!-- 검색 섹션 -->
+            <section id="search-section" class="section">
+                <h2>데이터 검색</h2>
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="검색어를 입력하세요...">
+                    <button onclick="searchData()">🔍 검색</button>
+                </div>
+                <div id="search-results" class="data-list">
+                    <!-- 검색 결과가 여기 표시됩니다 -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>마지막 업데이트: <span id="last-update">-</span></p>
+            <p>총 데이터 수: <span id="total-count">0</span></p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
